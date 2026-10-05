@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.example.models.Employee;
 import com.example.models.EmployeeService;
-import com.example.models.Sqlite;
+import com.example.models.Mariadb;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,7 +36,7 @@ public class MainController {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         cityCol.setCellValueFactory(new PropertyValueFactory<>("city"));
         salaryCol.setCellValueFactory(new PropertyValueFactory<>("salary"));
-        EmployeeService employeeService = new EmployeeService(new Sqlite());
+        EmployeeService employeeService = new EmployeeService(new Mariadb());
         List<Employee> empList = employeeService.getEmployees();
         table.getItems().addAll(empList);
 

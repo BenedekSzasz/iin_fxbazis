@@ -25,6 +25,12 @@
             <artifactId>sqlite-jdbc</artifactId>
              <version>3.53.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+             <version>3.5.10</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
