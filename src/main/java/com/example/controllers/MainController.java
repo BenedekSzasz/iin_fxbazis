@@ -5,9 +5,9 @@ import javafx.fxml.FXML;
 
 public class MainController {
 
-    @FXML
+    @FXML 
     void goButton(ActionEvent event) {
-        System.out.println("Működik....");
+        System.out.println("Működik...");
     }
 
 }

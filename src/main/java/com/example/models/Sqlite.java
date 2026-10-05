@@ -12,10 +12,11 @@ public class Sqlite implements Database {
         try {
             return tryConnect();
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
-     public Connection tryConnect() throws SQLException {
+    public Connection tryConnect() throws SQLException {
         String url = "jdbc:sqlite:database.db";
         return DriverManager.getConnection(url);
     }
