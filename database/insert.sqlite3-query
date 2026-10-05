@@ -1,0 +1,10 @@
+-- database: ../database.db
+
+INSERT INTO employees 
+(name, city, salary) 
+VALUES 
+('Tana Elemér', 'Budapest', 397),
+('Dénes Elemér', 'Szolnok', 392),
+('Tárka Zoltán', 'Prága', 387),
+('Hoffmann József', 'Debrecen', 400),
+('Fekete József', 'Miskolc', 600);
