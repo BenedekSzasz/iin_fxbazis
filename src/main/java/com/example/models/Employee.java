@@ -22,6 +22,13 @@ public class Employee {
         this.salary = salary;
     }
 
+    
+
+    @Override
+    public String toString() {
+        return "\nEmployee [id=" + id + ", name=" + name + ", city=" + city + ", salary=" + salary + "]";
+    }
+
     public int getId() {
         return id;
     }
