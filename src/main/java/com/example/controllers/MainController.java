@@ -9,6 +9,7 @@ import com.example.models.Sqlite;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -44,6 +45,15 @@ public class MainController {
     @FXML
     private TextField salaryField;
 
+    @FXML
+    private Button addButton;
+
+    @FXML
+    private Button deleteButton;
+
+    @FXML
+    private Button modifyButton;
+
     EmployeeService employeeService;
 
     @FXML 
@@ -64,7 +74,7 @@ public class MainController {
     }
 
     @FXML
-    void addButton(ActionEvent event) {
+    void onClickAddButton(ActionEvent event) {
         System.out.println("Hozzáadás....");
         employeeService.createEmployee(makeNewEmployee());
         refreshEmployees();
@@ -89,7 +99,7 @@ public class MainController {
     }
 
     @FXML
-    void deleteButton(ActionEvent event) {
+    void onClickDeleteButton(ActionEvent event) {
         System.out.println("Törlés....");
         int selected = table.getSelectionModel().getSelectedIndex();
         if(selected >= 0) {
@@ -105,13 +115,13 @@ public class MainController {
     }
 
     @FXML
-    void modifyButton(ActionEvent event) {
+    void onClickModifyButton(ActionEvent event) {
         System.out.println("Módosítás....");
         Employee employeeForUpdate = makeUpdatedEmployee();
         employeeService.updateEmployee(employeeForUpdate);
         refreshEmployees();
         clearFields();
-        
+        unsetEditMode();
     }
 
     Employee makeUpdatedEmployee() {
@@ -130,6 +140,7 @@ public class MainController {
             int selected = table.getSelectionModel().getSelectedIndex();
             Employee employeeForEdit = table.getItems().get(selected);
             fillFields(employeeForEdit);
+            setEditMode();
         }
         
     }
@@ -141,4 +152,13 @@ public class MainController {
         salaryField.setText(Integer.toString(employee.getSalary()));
     }
 
+    void setEditMode() {
+        deleteButton.setDisable(true);
+        addButton.setDisable(true);
+    }
+
+    void unsetEditMode() {
+        deleteButton.setDisable(false);
+        addButton.setDisable(false);
+    }
 }
