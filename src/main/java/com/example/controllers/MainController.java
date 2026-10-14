@@ -64,8 +64,11 @@ public class MainController {
         String dialect = config.getProperty("dialect");
         if (dialect.equals("mariadb")) {
             employeeService = new EmployeeService(new Mariadb());
-        }else {
+        }else if(dialect.equals("sqlite")){
             employeeService = new EmployeeService(new Sqlite());
+        }else {
+            System.err.println("Hiba! Nem megfelelő dialect");
+            System.err.println("Mariadb vagy Sqlite használható.");
         }
         // EmployeeService employeeService = new EmployeeService(new Mariadb());
         employeeService = new EmployeeService(new Sqlite());
