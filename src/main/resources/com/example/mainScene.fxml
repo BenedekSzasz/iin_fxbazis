@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.MainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.MainController">
    <children>
-      <Button layoutX="535.0" layoutY="351.0" mnemonicParsing="false" onAction="#goButton" text="Mehet" />
-      <TableView fx:id="table" layoutX="47.0" layoutY="26.0" prefHeight="310.0" prefWidth="509.0">
+      <Button layoutX="491.0" layoutY="446.0" mnemonicParsing="false" onAction="#addButton" text="Hozzáadás" />
+      <TableView fx:id="table" layoutX="14.0" layoutY="25.0" onMouseClicked="#onMouseClicked" prefHeight="310.0" prefWidth="509.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="nameCol" prefWidth="141.0" text="Név" />
@@ -16,5 +18,15 @@
             <TableColumn fx:id="salaryCol" prefWidth="84.0" text="Fizetés" />
         </columns>
       </TableView>
+      <Label layoutX="14.0" layoutY="355.0" text="ID" />
+      <Label layoutX="68.0" layoutY="355.0" text="Név" />
+      <Label layoutX="212.0" layoutY="355.0" text="Település" />
+      <Label layoutX="374.0" layoutY="355.0" text="Fizetés" />
+      <TextField fx:id="idField" layoutX="12.0" layoutY="372.0" prefHeight="25.0" prefWidth="28.0" />
+      <TextField fx:id="nameField" layoutX="68.0" layoutY="372.0" prefHeight="25.0" prefWidth="133.0" />
+      <TextField fx:id="cityField" layoutX="212.0" layoutY="372.0" />
+      <TextField fx:id="salaryField" layoutX="374.0" layoutY="372.0" prefHeight="25.0" prefWidth="102.0" />
+      <Button layoutX="491.0" layoutY="413.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="25.0" prefWidth="73.0" text="Törlés" />
+      <Button layoutX="491.0" layoutY="385.0" mnemonicParsing="false" onAction="#modifyButton" prefHeight="25.0" prefWidth="73.0" text="Módosít" />
    </children>
 </Pane>
