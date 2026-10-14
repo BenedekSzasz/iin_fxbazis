@@ -2,9 +2,10 @@ package com.example.controllers;
 
 import java.util.List;
 
+import com.example.models.Config;
 import com.example.models.Employee;
 import com.example.models.EmployeeService;
-// import com.example.models.Mariadb;
+import com.example.models.Mariadb;
 import com.example.models.Sqlite;
 
 import javafx.event.ActionEvent;
@@ -59,6 +60,13 @@ public class MainController {
     @FXML 
     void initialize() {
         initCols();
+        Config config = new Config();
+        String dialect = config.getProperty("dialect");
+        if (dialect.equals("mariadb")) {
+            employeeService = new EmployeeService(new Mariadb());
+        }else {
+            employeeService = new EmployeeService(new Sqlite());
+        }
         // EmployeeService employeeService = new EmployeeService(new Mariadb());
         employeeService = new EmployeeService(new Sqlite());
         List<Employee> empList = employeeService.getEmployees();
